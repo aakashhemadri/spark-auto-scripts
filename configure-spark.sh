@@ -6,6 +6,8 @@ DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
 # DIR=$DIR
 source $DIR/env.sh
 
+mkdir -p "$DIR/logs" "$DIR/work" "$DIR/conf"
+
 # Add other files if needed
 cp -f "$DIR/conf-template/spark-env.sh" "$SPARK_HOME/conf/"
 cp -f "$DIR/conf-template/spark-env.sh" "$DIR/conf/"
@@ -45,5 +47,3 @@ cp -f "$DIR/conf-template/spark-defaults.conf.template" "$DIR/conf/spark-default
 sed -i "s|\$SPARK_MASTER_HOST|$SPARK_MASTER_HOST|g" "$DIR/conf/spark-defaults.conf"
 sed -i "s|\$SPARK_MASTER_PORT|$SPARK_MASTER_PORT|g" "$DIR/conf/spark-defaults.conf"
 sed -i "s|\$SPARK_LOG_DIR|$SPARK_LOG_DIR|g" "$DIR/conf/spark-defaults.conf"
-
-mkdir -p "$DIR/logs" "$DIR/work"
