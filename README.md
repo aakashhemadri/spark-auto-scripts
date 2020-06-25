@@ -33,11 +33,11 @@ $ vi spark-defaults.conf slaves log4j.properties fairscheduler.xml
 $ ./configure-spark.sh
 ```
 
-- Modify and run [spark-submit.sh](spark-submit.sh) to send shaded jar to spark-submit
+- Modify and run [exec.sh](exec.sh) to send shaded jar to spark-submit
 
 ```bash
 # Runs by default SparkPi
-./spark-submit.sh
+./exec.sh
 ```
 
 ## Writing custom scripts
