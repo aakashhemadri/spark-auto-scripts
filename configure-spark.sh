@@ -47,6 +47,3 @@ sed -i "s|\$SPARK_MASTER_PORT|$SPARK_MASTER_PORT|g" "$DIR/conf/spark-defaults.co
 sed -i "s|\$SPARK_LOG_DIR|$SPARK_LOG_DIR|g" "$DIR/conf/spark-defaults.conf"
 
 mkdir -p "$DIR/logs" "$DIR/work"
-PROPERTIES_FILE="$DIR/conf/spark-default.conf"
-
-

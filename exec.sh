@@ -9,9 +9,11 @@ source $DIR/env.sh
 #
 # Edit this to run required app.
 #
-APP_CLASS="org.apache.spark.examples.SparkPi"
-APP_JAR="$SPARK_HOME/examples/jars/spark-examples_2.11-2.4.5.jar"
-APP_ARGS=100
+APP_CLASS="org.apache.spark.examples.SparkPi" # Main class to execute
+APP_JAR="$SPARK_HOME/examples/jars/spark-examples_2.11-2.4.5.jar" # Executable
+APP_ARGS=100 # App arguments
+MASTER_PROPERTIES_FILE="$DIR/conf/spark-default.conf" # Custom properties file
+SLAVE_PROPERTIES_FILE="$DIR/conf/spark-default.conf" # Custom properties file
 
 (cd "$DIR" && rm -rf logs/*)
 
@@ -34,9 +36,9 @@ APP_ARGS=100
 # Check https://$SPARK_MASTER_HOST:$SPARK_MASTER_WEBUI_PORT
 #
 (cd "$SPARK_HOME/sbin/" && \
-./start-master.sh --properties-file "$DIR/conf/spark-defaults.conf")
+./start-master.sh --properties-file "$MASTER_PROPERTIES_FILE")
 (cd "$SPARK_HOME/sbin/" && \
-./start-slave.sh --properties-file "$DIR/conf/spark-defaults.conf" "spark://$SPARK_MASTER_HOST:$SPARK_MASTER_PORT" )
+./start-slave.sh --properties-file "$SLAVE_PROPERTIES_FILE" "spark://$SPARK_MASTER_HOST:$SPARK_MASTER_PORT" )
 
 (cd "$SPARK_HOME/bin/" && \
 ./spark-submit --class $APP_CLASS \
