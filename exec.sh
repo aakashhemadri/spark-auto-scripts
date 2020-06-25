@@ -12,8 +12,8 @@ source $DIR/env.sh
 APP_CLASS="org.apache.spark.examples.SparkPi" # Main class to execute
 APP_JAR="$SPARK_HOME/examples/jars/spark-examples_2.11-2.4.5.jar" # Executable
 APP_ARGS=100 # App arguments
-MASTER_PROPERTIES_FILE="$DIR/conf/spark-default.conf" # Custom properties file
-SLAVE_PROPERTIES_FILE="$DIR/conf/spark-default.conf" # Custom properties file
+MASTER_PROPERTIES_FILE="$DIR/conf/spark-defaults.conf" # Custom properties file
+SLAVE_PROPERTIES_FILE="$DIR/conf/spark-defaults.conf" # Custom properties file
 
 (cd "$DIR" && rm -rf logs/*)
 
